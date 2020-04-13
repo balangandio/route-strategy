@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+ 	<head>
+    	<!-- Required meta tags -->
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<meta name="theme-color" content="#0061b2">
+		<meta name="msapplication-TileColor" content="#0061b2">
+		<meta name="msapplication-navbutton-color" content="#0061b2">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#0061b2">
+		<base href="/">
+
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	    <link rel="stylesheet" href="css/global.css">
+
+	    <script type="module" src="js/global.js"></script>
+
+    	<title>Hello, human</title>
+	</head>
+	<body>
+		<div class="app_container">
+			<div class="main_container">
+				<div class="top_bar">
+					<div class="toggle">
+						<a href="#" title="Acessar o menu" onclick="App.openToggleMenu(event);">
+							<img src="img/menu_toggle.svg" />
+						</a>
+					</div>
+					<div class="header">Routing Strategy</div>
+					<div class="closer"></div>
+				</div>
+
+				<div class="main_content">
+					<div class="content">
+						<div class="container limited_content py-3">
+							<div class="row">
+								<div class="col">
+									<div class="card">
+										<img src="img/history_api.png" class="card-img-top">
+										<div class="card-body">
+										    <h5 class="card-title">History API</h5>
+										    <p class="card-text">A history state routing strategy</p>
+										    <a href="pages/history" onclick="App.onClickNavLink(event)" class="btn btn_color">Detail</a>
+										</div>
+									</div>
+								</div>
+
+								<div class="col">
+									<div class="card">
+									  <img src="img/hash_based.png" class="card-img-top">
+									  <div class="card-body">
+										    <h5 class="card-title">Hash-based</h5>
+										    <p class="card-text">A hash-based routing strategy</p>
+										    <a href="pages/hash" onclick="App.onClickNavLink(event)" class="btn btn_color">Detail</a>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="toggle_menu">
+					<div class="top_bar">
+						<div class="toggle"></div>
+						<div class="header">Menu</div>
+						<div class="closer">
+							<a href="#" title="Back" onclick="event.preventDefault(); window.history.back();">
+								<img src="img/close.svg" />
+							</a>
+						</div>
+					</div>
+
+					<div class="scroll_container">
+						<div class="menu_content">
+							<div class="list-group">
+								<a href="pages/history" class="list-group-item list-group-item-action" onclick="App.onClickNavLink(event)">History API strategy</a>
+								<a href="pages/hash" class="list-group-item list-group-item-action" onclick="App.onClickNavLink(event)">Hash-based strategy</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="page_history page">
+					<div class="top_bar">
+						<div class="toggle"></div>
+						<div class="header">History API</div>
+						<div class="closer">
+							<a href="#" title="Back" onclick="event.preventDefault(); window.history.back();">
+								<img src="img/close.svg" />
+							</a>
+						</div>
+					</div>
+
+					<div class="page_content">
+						<div class="container py-3">
+							<div class="media">
+								<img src="img/history_api.png" class="align-self-start mr-3">
+								<div class="media-body">
+									<h5 class="mt-0">Routing with HTML5 History API</h5>
+									<p><span class="badge badge-light">window.history</span> object provides several methods for manipulating the history of the browser. <span class="badge badge-light">Window.history.back()</span> can be used for moving a step back or <span class="badge badge-light">window.history.forward()</span> to do the opposite. And <span class="badge badge-light">window.history.pushState</span> method can create a new entry in the history of the browser.</p>
+									<p>Going back in the history, makes a <span class="badge badge-light">popstate</span> event be fired and the previous state avaliable.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="page_hash page">
+					<div class="top_bar">
+						<div class="top_bar">
+							<div class="toggle"></div>
+							<div class="header">Hash-based</div>
+							<div class="closer">
+								<a href="#" title="Back" onclick="event.preventDefault(); window.history.back();">
+									<img src="img/close.svg" />
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="page_content">
+						<div class="container py-3">
+							<div class="media">
+								<img src="img/hash_based.png" class="align-self-start mr-3">
+								<div class="media-body">
+									<h5 class="mt-0">Routing with hash-based strategy</h5>
+									<p>Hash-based routing makes use of the anchor part of the URL to simulate different content. In the url <span class="badge badge-light">http://example.com/#/creatures/list</span>, the part right after hash simbol <span class="badge badge-light">#/creatures/list</span>, is never sent to the server.</p>
+									<p>The routing is possible because changes in the hash don't trigger page reload, however triggers <span class="badge badge-light">hashchange</span> window event, an opportunity to render specific content.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="chooser_page opened">
+					<div class="top_bar">
+						<div class="toggle"></div>
+						<div class="header">Choose</div>
+						<div class="closer"></div>
+					</div>
+					<div class="container">
+						<div class="table_content">
+							<div class="table_content_cell">
+								<p><button type="button" onclick="App.initHistoryRouter()" class="btn btn-dark btn-lg btn-block">use History</button></p>
+								<p><button type="button" onclick="App.initHashRouter()" class="btn btn-dark btn-lg btn-block">use Hash</button></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bottom_container">
+				<p>bottom of the ocean</p>
+			</div>
+		</div>
+
+	    <!-- Optional JavaScript -->
+	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	</body>
+</html>
